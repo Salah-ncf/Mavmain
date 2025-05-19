@@ -5,6 +5,8 @@ import Column from '../components/Column'
 import styles from '../page.module.scss'
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import Banner_image from  '../assets/images/homeguys.png'
+
 
 import {
   dark,
@@ -16,8 +18,9 @@ import {
   pictsTab,
 } from '../../assets'
 import CostumeButton from '../components/CostumeButton'
-const Banner_image =
-  'https://content.asos-media.com/-/media/homepages/mw/2025/march/03-gbl/wk27_28/wk27_28/heroes/mw_dt_hero_2880x1280_colour.jpg'
+
+
+
 export const Home = () => {
   const container = useRef(null)
   const { scrollYProgress } = useScroll({

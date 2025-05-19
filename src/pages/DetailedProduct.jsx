@@ -353,7 +353,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CommentSection from '../components/CommentSection'
 import { useCart } from '../components/CartContext'  // Import du contexte
-
+import { useNavigate } from 'react-router-dom'
 const DetailedProduct = () => {
   const { id } = useParams()
   const [product, setProduct] = useState(null)
@@ -361,6 +361,8 @@ const DetailedProduct = () => {
   const [rating, setRating] = useState(0)
   const [zoomed, setZoomed] = useState(false)
   const { addToCart } = useCart()  // Utilisation de la fonction du contexte
+
+const user = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     const fetchData = async () => {
@@ -394,10 +396,31 @@ const DetailedProduct = () => {
     alert("Produit ajouté au panier !")
   }
 
-  const handleRating = (value) => {
+  // const handleRating = (value) => {
+  //   setRating(value)
+  //   alert(`Vous avez noté ce produit ${value} étoiles !`)
+  // }
+const navigate = useNavigate()
+  const handleRating = async (value) => {
+    if (!user) {
+      alert('you have to login first')
+      return navigate('/login')
+    }
     setRating(value)
-    alert(`Vous avez noté ce produit ${value} étoiles !`)
+    alert(`You rated this product ${value} stars!`)
+
+    try {
+      await axios.post(`http://localhost:3000/rate-product/${id}`, {
+        userId: user._id,
+        value: value,
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+
+
 
   if (!product) {
     return <div>Loading...</div>
