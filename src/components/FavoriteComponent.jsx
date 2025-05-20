@@ -10,10 +10,10 @@ export const FavoriteComponent = ({ user }) => {
     const getFavorite = async (id) => {
       try {
         const fProductsIds = await axios.get(
-          `http://localhost:3000/api/favoriteProduct/${id}`
+          `https://mavback-p9lg.onrender.com/api/favoriteProduct/${id}`
         )
         const fProducts = await axios.get(
-          `http://localhost:3000/api/favoriteProductBulk/${JSON.stringify(
+          `https://mavback-p9lg.onrender.com/api/favoriteProductBulk/${JSON.stringify(
             fProductsIds.data.favorite
           )}`
         )

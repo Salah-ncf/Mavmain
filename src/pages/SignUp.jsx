@@ -122,7 +122,7 @@ const SignUp = () => {
       }
       try {
         const response = await axios.post(
-          'http://localhost:3000/client/signup',
+          'https://mavback-p9lg.onrender.com/client/signup',
           clientInfo
         )
 
@@ -194,7 +194,7 @@ const SignUp = () => {
       }
       try {
         await axios.post(
-          'http://localhost:3000/magazine/inscription',
+          'https://mavback-p9lg.onrender.com/magazine/inscription',
           clientInfo
         )
         setUserInfo({

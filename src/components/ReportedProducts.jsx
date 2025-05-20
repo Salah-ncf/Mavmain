@@ -8,7 +8,7 @@ const ReportedProducts = () => {
   useEffect(() => {
     const getReportedProduct = async () => {
       const result = await axios.get(
-        'http://localhost:3000/api/products/reported'
+        'https://mavback-p9lg.onrender.com/api/products/reported'
       )
 
       setProducts(result.data)

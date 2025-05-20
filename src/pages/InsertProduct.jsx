@@ -39,7 +39,7 @@ const InsertProduct = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/products',
+        'https://mavback-p9lg.onrender.com/api/products',
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -51,7 +51,7 @@ const InsertProduct = () => {
         return {
           color: element.color,
           quantity: element.number,
-          path: `http://localhost:3000/uploads/${response.data[index].filename}`,
+          path: `https://mavback-p9lg.onrender.com/uploads/${response.data[index].filename}`,
         }
       })
 
@@ -63,7 +63,7 @@ const InsertProduct = () => {
       setProduct(updatedProduct)
 
       const answer = await axios.post(
-        'http://localhost:3000/api/products/details',
+        'https://mavback-p9lg.onrender.com/api/products/details',
         {
           updatedProduct,
         }

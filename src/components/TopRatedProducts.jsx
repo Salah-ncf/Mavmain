@@ -7,7 +7,7 @@ const TopRatedPieChart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/top-rated')
+      .get('https://mavback-p9lg.onrender.com/top-rated')
       .then((res) => setTopRated(res.data))
       .catch((err) => console.error('Failed to fetch data:', err))
   }, [])

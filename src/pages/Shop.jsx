@@ -7,7 +7,9 @@ export const Shop = () => {
   console.log(products)
   useEffect(() => {
     const fetchProducts = async () => {
-      const results = await axios.get('http://localhost:3000/api/getProduct')
+      const results = await axios.get(
+        'https://mavback-p9lg.onrender.com/api/getProduct'
+      )
       setProducts(results.data)
     }
     fetchProducts()

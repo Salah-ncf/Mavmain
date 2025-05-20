@@ -14,7 +14,7 @@
 //     setInput('')
 
 //     try {
-//       const res = await axios.post('http://localhost:3000/AIS', {
+//       const res = await axios.post('https://mavback-p9lg.onrender.com/AIS', {
 //         message: userMessage,
 //       })
 
@@ -114,7 +114,7 @@
 
 //     try {
 //       // 1. Send message to backend AI chat route
-//       const aiResponse = await axios.post('http://localhost:3000/AIS', {
+//       const aiResponse = await axios.post('https://mavback-p9lg.onrender.com/AIS', {
 //         message: userMsg,
 //       })
 //       console.log('AI Response:', aiResponse.data)
@@ -128,7 +128,7 @@
 
 //       //   // 2. Fetch products by filters from backend
 //       //   const prodRes = await axios.post(
-//       //     'http://localhost:3000/products/filter',
+//       //     'https://mavback-p9lg.onrender.com/products/filter',
 //       //     {
 //       //       filters: aiFilters,
 //       //     }
@@ -269,7 +269,7 @@
 //     setError(null)
 
 //     try {
-//       const res = await axios.post('http://localhost:3000/AIS', {
+//       const res = await axios.post('https://mavback-p9lg.onrender.com/AIS', {
 //         message: input,
 //       })
 //       // if (res.data.success) {
@@ -382,7 +382,7 @@ export default function ChatBot() {
     setInput('')
 
     try {
-      const res = await axios.post('http://localhost:3000/AIS', {
+      const res = await axios.post('https://mavback-p9lg.onrender.com/AIS', {
         message: userMsg,
       })
 
@@ -398,7 +398,7 @@ export default function ChatBot() {
         console.log('filter', second)
 
         const response = await axios.post(
-          'http://localhost:3000/search',
+          'https://mavback-p9lg.onrender.com/search',
 
           JSON.parse(second)
         )

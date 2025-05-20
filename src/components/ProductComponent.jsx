@@ -10,7 +10,7 @@ const ProductComponent = ({ user }) => {
     const getFavorite = async (id) => {
       try {
         const Products = await axios.get(
-          `http://localhost:3000/api/myProducts/${id}`
+          `https://mavback-p9lg.onrender.com/api/myProducts/${id}`
         )
 
         console.log(Products.data.MyProducts)

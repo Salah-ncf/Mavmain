@@ -11,7 +11,7 @@ const NewMagazine = () => {
     const fetchData = async () => {
       try {
         const newMagazines = await axios.get(
-          'http://localhost:3000/api/newMagazines'
+          'https://mavback-p9lg.onrender.com/api/newMagazines'
         )
 
         setResult(newMagazines.data)

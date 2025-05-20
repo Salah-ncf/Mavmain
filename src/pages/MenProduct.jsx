@@ -36,7 +36,9 @@ const MenProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/getProduct/men')
+        const res = await axios.get(
+          'https://mavback-p9lg.onrender.com/api/getProduct/men'
+        )
 
         const shirts = res.data.filter((item) => item.subcategory === 'shirts')
         const pants = res.data.filter((item) => item.subcategory === 'pants')

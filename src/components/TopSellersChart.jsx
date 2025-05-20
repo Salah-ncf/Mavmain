@@ -14,7 +14,7 @@ const TopSellersChart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/top-sellers')
+      .get('https://mavback-p9lg.onrender.com/top-sellers')
       .then((res) => setData(res.data))
       .catch((err) => console.error('Failed to fetch data:', err))
   }, [])

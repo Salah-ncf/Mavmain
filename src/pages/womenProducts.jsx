@@ -40,7 +40,7 @@ const WomenProducts = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          'http://localhost:3000/api/getProduct/women'
+          'https://mavback-p9lg.onrender.com/api/getProduct/women'
         )
         setResult(res.data)
         const shirts = res.data.filter((item) => item.subcategory === 'shirts')

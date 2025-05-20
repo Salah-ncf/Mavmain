@@ -4,13 +4,13 @@ import SearchInput from './SearchInput'
 import CostumeButton from './CostumeButton'
 import { Link, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../GlobalProvider'
-import { useContext, useEffect ,useState} from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useCart } from './CartContext'
 export const Navbar = () => {
   const { setUser } = useContext(GlobalContext)
-  const [numberItems,setNumberItems]=useState(null)
-  const { totalItems } = useCart(); 
+  const [numberItems, setNumberItems] = useState(null)
+  const { totalItems } = useCart()
   const navigate = useNavigate()
   const loginFunc = () => {
     navigate('/login')
@@ -22,7 +22,7 @@ export const Navbar = () => {
     const token = localStorage.getItem('refreshToken')
     try {
       await axios.post(
-        'http://localhost:3000/api/logout',
+        'https://mavback-p9lg.onrender.com/api/logout',
         { token },
         {
           headers: {
@@ -43,9 +43,12 @@ export const Navbar = () => {
         let accessToken1
         try {
           const token = localStorage.getItem('refreshToken')
-          const response = await axios.post('http://localhost:3000/token', {
-            token,
-          })
+          const response = await axios.post(
+            'https://mavback-p9lg.onrender.com/token',
+            {
+              token,
+            }
+          )
           console.log(response)
           const { accessToken } = response.data
           accessToken1 = accessToken
@@ -56,7 +59,7 @@ export const Navbar = () => {
         try {
           const accessToken = accessToken1
           await axios.post(
-            'http://localhost:3000/api/logout',
+            'https://mavback-p9lg.onrender.com/api/logout',
             { token },
             {
               headers: {
@@ -133,18 +136,18 @@ export const Navbar = () => {
             />
           )}
           <div className="relative  w-[66px]">
-           <img
-            src={cart}
-            alt="cart"
-            className="h-6 m-auto cursor-pointer"
-            onClick={ShoppingCartFunc}
-          />
-          {totalItems > 0 && (
-            <span className="absolute   bg-red-500 text-white text-xs px-2 rounded-full">
-              {totalItems}
-            </span>
-          )}
-        </div>
+            <img
+              src={cart}
+              alt="cart"
+              className="h-6 m-auto cursor-pointer"
+              onClick={ShoppingCartFunc}
+            />
+            {totalItems > 0 && (
+              <span className="absolute   bg-red-500 text-white text-xs px-2 rounded-full">
+                {totalItems}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </nav>

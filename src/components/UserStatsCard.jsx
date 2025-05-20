@@ -6,7 +6,7 @@ const UserStatsCard = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/user-stats')
+      .get('https://mavback-p9lg.onrender.com/user-stats')
       .then((res) => setStats(res.data))
       .catch((err) => console.error('Failed to fetch user stats:', err))
   }, [])

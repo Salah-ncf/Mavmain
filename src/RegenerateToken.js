@@ -3,7 +3,7 @@ const regenerateTokenPost = async (url) => {
     let accessToken1
     try {
         const token = localStorage.getItem('refreshToken')
-        const response = await axios.post('http://localhost:3000/token', {
+        const response = await axios.post('https://mavback-p9lg.onrender.com/token', {
             token,
         })
         console.log(response)
@@ -35,7 +35,7 @@ const regenerateTokenDelete = async (url) => {
     let accessToken1
     try {
         const token = localStorage.getItem('refreshToken')
-        const response = await axios.post('http://localhost:3000/token', {
+        const response = await axios.post('https://mavback-p9lg.onrender.com/token', {
             token,
         })
         console.log(response)
@@ -69,7 +69,7 @@ const regenerateTokenPut = async (url) => {
     let accessToken1
     try {
         const token = localStorage.getItem('refreshToken')
-        const response = await axios.post('http://localhost:3000/token', {
+        const response = await axios.post('https://mavback-p9lg.onrender.com/token', {
             token,
         })
         console.log(response)
@@ -101,7 +101,7 @@ const regenerateTokenGet = async (url) => {
     let accessToken1
     try {
         const token = localStorage.getItem('refreshToken')
-        const response = await axios.post('http://localhost:3000/token', {
+        const response = await axios.post('https://mavback-p9lg.onrender.com/token', {
             token,
         })
         console.log(response)

@@ -14,7 +14,7 @@ const DetailedProductAdmin = () => {
     const fetchData = async () => {
       try {
         const results = await axios.get(
-          `http://localhost:3000/api/newProduct/details/${id}`
+          `https://mavback-p9lg.onrender.com/api/newProduct/details/${id}`
         )
         setProduct(results.data)
       } catch (error) {

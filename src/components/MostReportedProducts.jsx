@@ -7,7 +7,7 @@ const MostReportedDoughnutChart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/most-reported')
+      .get('https://mavback-p9lg.onrender.com/most-reported')
       .then((res) => setMostReported(res.data))
       .catch((err) => console.error('Failed to fetch data:', err))
   }, [])

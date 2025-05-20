@@ -27,7 +27,7 @@ const MagazineInscription = () => {
     const fetchData = async () => {
       try {
         const newMagazine = await axios.get(
-          `http://localhost:3000/api/newMagazine/details/${id}`
+          `https://mavback-p9lg.onrender.com/api/newMagazine/details/${id}`
         )
         setUserInfo(newMagazine.data)
       } catch (error) {

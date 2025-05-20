@@ -16,7 +16,7 @@
 //     const fetchData = async () => {
 //       try {
 //         const results = await axios.get(
-//           `http://localhost:3000/api/product/details/${id}`
+//           `https://mavback-p9lg.onrender.com/api/product/details/${id}`
 //         )
 //         setProduct(results.data)
 //       } catch (error) {
@@ -33,7 +33,7 @@
 //       return navigate('/login')
 //     }
 //     try {
-//       await axios.post(`http://localhost:3000/add-to-cart/${id}`)
+//       await axios.post(`https://mavback-p9lg.onrender.com/add-to-cart/${id}`)
 //     } catch (error) {
 //       console.error('Error adding product to cart:', error)
 //     }
@@ -49,7 +49,7 @@
 //     alert(`You rated this product ${value} stars!`)
 
 //     try {
-//       await axios.post(`http://localhost:3000/rate-product/${id}`, {
+//       await axios.post(`https://mavback-p9lg.onrender.com/rate-product/${id}`, {
 //         userId: user._id,
 //         value: value,
 //       })
@@ -177,15 +177,15 @@
 // const DetailedProduct = () => {
 //   const { id } = useParams()
 //   const [product, setProduct] = useState(null)
-//   const [selectedColor, setSelectedColor] = useState(null) 
-//   const [rating, setRating] = useState(0) 
-//   const [zoomed, setZoomed] = useState(false) 
+//   const [selectedColor, setSelectedColor] = useState(null)
+//   const [rating, setRating] = useState(0)
+//   const [zoomed, setZoomed] = useState(false)
 //   const [idproduct,setIdproduct]=useState([])
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
 //         const results = await axios.get(
-//           `http://localhost:3000/api/product/details/${id}`
+//           `https://mavback-p9lg.onrender.com/api/product/details/${id}`
 //         )
 //         setProduct(results.data)
 //       } catch (error) {
@@ -199,8 +199,8 @@
 //     const selectedProductColor = selectedColor || product.available[0];
 //     setIdproduct(product._id)
 //     try {
-//       const response = await axios.post("http://localhost:3000/api/cart", {
-      
+//       const response = await axios.post("https://mavback-p9lg.onrender.com/api/cart", {
+
 //         name: product.name,
 //         brand: product.brand,
 //         price: product.price,
@@ -210,22 +210,19 @@
 //         available: [
 //           {
 //             color: selectedProductColor.color,
-//             quantity: 1,  
+//             quantity: 1,
 //             path: selectedProductColor.path,
 //           }
 //         ],
-     
+
 //       });
-  
+
 //       alert("Produit ajouté au panier !");
 //     } catch (error) {
 //       console.error("Erreur lors de l'ajout au panier:", error.response?.data || error.message);
 //       alert("Échec de l'ajout au panier : " + (error.response?.data?.message || "Erreur inconnue"));
 //     }
 //   };
-  
-  
-
 
 //   const handleRating = (value) => {
 //     setRating(value)
@@ -238,9 +235,9 @@
 
 //   return (
 //     <div className="grid grid-cols-2 gap-8 p-8 pt-[100px]">
-      
+
 //       <div className="grid grid-cols-[1fr_4fr] gap-4">
-        
+
 //         <div className="flex flex-col gap-4">
 //           {product.available.map((item, index) => (
 //             <img
@@ -253,7 +250,6 @@
 //           ))}
 //         </div>
 
-        
 //         <div
 //           className={`relative w-full h-[500px] bg-gray-100 rounded overflow-hidden ${
 //             zoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
@@ -270,7 +266,6 @@
 //         </div>
 //       </div>
 
-      
 //       <div className="grid grid-cols-[3fr_1.5fr] gap-4">
 //         <div>
 //           <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -317,7 +312,7 @@
 
 //         <div className="flex flex-col items-center">
 //           <button
-           
+
 //             onClick={() => addToCart(product)}
 //             className="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition"
 //           >
@@ -352,7 +347,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CommentSection from '../components/CommentSection'
-import { useCart } from '../components/CartContext'  // Import du contexte
+import { useCart } from '../components/CartContext' // Import du contexte
 import { useNavigate } from 'react-router-dom'
 const DetailedProduct = () => {
   const { id } = useParams()
@@ -360,15 +355,15 @@ const DetailedProduct = () => {
   const [selectedColor, setSelectedColor] = useState(null)
   const [rating, setRating] = useState(0)
   const [zoomed, setZoomed] = useState(false)
-  const { addToCart } = useCart()  // Utilisation de la fonction du contexte
+  const { addToCart } = useCart() // Utilisation de la fonction du contexte
 
-const user = JSON.parse(localStorage.getItem('user'))
+  const user = JSON.parse(localStorage.getItem('user'))
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const results = await axios.get(
-          `http://localhost:3000/api/product/details/${id}`
+          `https://mavback-p9lg.onrender.com/api/product/details/${id}`
         )
         setProduct(results.data)
       } catch (error) {
@@ -393,14 +388,14 @@ const user = JSON.parse(localStorage.getItem('user'))
       ],
     }
     addToCart(productToAdd) // Ajout du produit via le contexte
-    alert("Produit ajouté au panier !")
+    alert('Produit ajouté au panier !')
   }
 
   // const handleRating = (value) => {
   //   setRating(value)
   //   alert(`Vous avez noté ce produit ${value} étoiles !`)
   // }
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const handleRating = async (value) => {
     if (!user) {
       alert('you have to login first')
@@ -410,7 +405,7 @@ const navigate = useNavigate()
     alert(`You rated this product ${value} stars!`)
 
     try {
-      await axios.post(`http://localhost:3000/rate-product/${id}`, {
+      await axios.post(`https://mavback-p9lg.onrender.com/rate-product/${id}`, {
         userId: user._id,
         value: value,
       })
@@ -419,18 +414,13 @@ const navigate = useNavigate()
     }
   }
 
-
-
-
   if (!product) {
     return <div>Loading...</div>
   }
 
   return (
     <div className="grid grid-cols-2 gap-8 p-8 pt-[100px]">
-      
       <div className="grid grid-cols-[1fr_4fr] gap-4">
-        
         <div className="flex flex-col gap-4">
           {product.available.map((item, index) => (
             <img

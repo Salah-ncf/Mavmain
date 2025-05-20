@@ -30,7 +30,7 @@ export const Card = ({
   const handelApproval = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/approveProduct/${id}`,
+        `https://mavback-p9lg.onrender.com/approveProduct/${id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -45,7 +45,9 @@ export const Card = ({
     } catch (error) {
       console.log(error)
       if (error.response.status === 403) {
-        regenerateTokenPut(`http://localhost:3000/approveProduct/${id}`)
+        regenerateTokenPut(
+          `https://mavback-p9lg.onrender.com/approveProduct/${id}`
+        )
         const results = cards.filter((element) => {
           return element._id !== id
         })
@@ -56,7 +58,7 @@ export const Card = ({
   const handelReject = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/rejectedProduct/${id}`,
+        `https://mavback-p9lg.onrender.com/rejectedProduct/${id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -70,7 +72,9 @@ export const Card = ({
       setCards(results)
     } catch (error) {
       if (error.response.status === 403) {
-        regenerateTokenPut(`http://localhost:3000/rejectedProduct/${id}`)
+        regenerateTokenPut(
+          `https://mavback-p9lg.onrender.com/rejectedProduct/${id}`
+        )
         const results = cards.filter((element) => {
           return element._id !== id
         })
@@ -95,12 +99,12 @@ export const Card = ({
     if (!isFavorite) {
       console.log(user)
       const result = await axios.put(
-        'http://localhost:3000/api/user/favorite',
+        'https://mavback-p9lg.onrender.com/api/user/favorite',
         { userId, newFavorite }
       )
     } else {
       const result = await axios.put(
-        'http://localhost:3000/api/user/rFavorite',
+        'https://mavback-p9lg.onrender.com/api/user/rFavorite',
         {
           userId,
           newFavorite,
@@ -123,11 +127,14 @@ export const Card = ({
     }
     try {
       const user = JSON.parse(localStorage.getItem('user'))
-      await axios.post(`http://localhost:3000/api/products/report/${id}`, {
-        userId: user._id,
-        reason: reportReason,
-        details: '',
-      })
+      await axios.post(
+        `https://mavback-p9lg.onrender.com/api/products/report/${id}`,
+        {
+          userId: user._id,
+          reason: reportReason,
+          details: '',
+        }
+      )
 
       alert('Product reported successfully.')
       setShowOptions(false)
@@ -140,7 +147,7 @@ export const Card = ({
   const deleteFunc = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/products/report/${id}`,
+        `https://mavback-p9lg.onrender.com/api/products/report/${id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -155,7 +162,9 @@ export const Card = ({
     } catch (error) {
       console.log(`we had an error ${error.message}`)
       if (error.response.status === 403) {
-        regenerateTokenPut(`http://localhost:3000/api/products/report/${id}`)
+        regenerateTokenPut(
+          `https://mavback-p9lg.onrender.com/api/products/report/${id}`
+        )
         const results = cards.filter((element) => {
           return element._id !== id
         })
@@ -166,7 +175,7 @@ export const Card = ({
   const keepFunc = async () => {
     try {
       await axios.post(
-        `http://localhost:3000/api/products/report/keep/${id}`,
+        `https://mavback-p9lg.onrender.com/api/products/report/keep/${id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -182,7 +191,7 @@ export const Card = ({
       console.log(`we had an error ${error.message}`)
       if (error.response.status === 403) {
         regenerateTokenPost(
-          `http://localhost:3000/api/products/report/keep/${id}`
+          `https://mavback-p9lg.onrender.com/api/products/report/keep/${id}`
         )
         const results = cards.filter((element) => {
           return element._id !== id
@@ -242,33 +251,33 @@ export const Card = ({
           ))}
         </div>
         {isOnSale ? (
-  <div>
-    <p className="line-through">{`${price}DA`}</p>
-    <div className="flex justify-between">
-      <p>{`${(price - amount * price).toFixed(2)}DA`}</p>
-      <i
-        className={
-          isFavorite
-            ? 'fa-solid fa-heart fa-lg text-red-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
-            : 'fa-regular fa-heart fa-lg text-gray-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
-        }
-        onClick={handelFavorite}
-      ></i>
-    </div>
-  </div>
-) : (
-  <div className="flex justify-between">
-    <p>{`${price}DA`}</p>
-    <i
-      className={
-        isFavorite
-          ? 'fa-solid fa-heart fa-lg text-red-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
-          : 'fa-regular fa-heart fa-lg text-gray-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
-      }
-      onClick={handelFavorite}
-    ></i>
-  </div>
-)}
+          <div>
+            <p className="line-through">{`${price}DA`}</p>
+            <div className="flex justify-between">
+              <p>{`${(price - amount * price).toFixed(2)}DA`}</p>
+              <i
+                className={
+                  isFavorite
+                    ? 'fa-solid fa-heart fa-lg text-red-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
+                    : 'fa-regular fa-heart fa-lg text-gray-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
+                }
+                onClick={handelFavorite}
+              ></i>
+            </div>
+          </div>
+        ) : (
+          <div className="flex justify-between">
+            <p>{`${price}DA`}</p>
+            <i
+              className={
+                isFavorite
+                  ? 'fa-solid fa-heart fa-lg text-red-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
+                  : 'fa-regular fa-heart fa-lg text-gray-500 mt-[11px] mr-[7px] transition-transform duration-300 ease-in-out hover:scale-130'
+              }
+              onClick={handelFavorite}
+            ></i>
+          </div>
+        )}
 
         {admin && (
           <div className="flex justify-center mt-5 space-x-1">

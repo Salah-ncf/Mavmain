@@ -8,7 +8,7 @@
 //   const handleSearch = async () => {
 //     try {
 //       const res = await axios.get(
-//         `http://localhost:3000/api/products/search?q=${encodeURIComponent(
+//         `https://mavback-p9lg.onrender.com/api/products/search?q=${encodeURIComponent(
 //           query
 //         )}`
 //       )
@@ -67,7 +67,7 @@ export const SearchInput = () => {
   const handleSearch = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/products/search?q=${encodeURIComponent(
+        `https://mavback-p9lg.onrender.com/api/products/search?q=${encodeURIComponent(
           query
         )}`
       )

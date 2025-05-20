@@ -13,7 +13,7 @@ const CommentSection = ({ productId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/comments/${productId}`
+          `https://mavback-p9lg.onrender.com/api/comments/${productId}`
         )
         console.log(response.data)
         setComments(response.data)
@@ -31,7 +31,7 @@ const CommentSection = ({ productId }) => {
       if (!newComment.trim()) return
       try {
         const response = await axios.post(
-          `http://localhost:3000/api/comments/${productId}`,
+          `https://mavback-p9lg.onrender.com/api/comments/${productId}`,
           { text: newComment, userId: user._id }
         )
         setComments((prev) => [...prev, response.data])

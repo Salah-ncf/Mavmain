@@ -16,7 +16,7 @@ const StockBarChart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/stock')
+      .get('https://mavback-p9lg.onrender.com/stock')
       .then((res) => setProductStocks(res.data))
       .catch((err) => console.error('Failed to fetch data:', err))
   }, [])

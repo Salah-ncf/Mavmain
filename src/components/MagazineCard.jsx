@@ -9,7 +9,7 @@ const MagazineCard = ({ magazine, result, setResult }) => {
   const HandelApprove = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/approve/${magazine._id}`,
+        `https://mavback-p9lg.onrender.com/approve/${magazine._id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -24,7 +24,9 @@ const MagazineCard = ({ magazine, result, setResult }) => {
     } catch (error) {
       console.log(error)
       if (error.response.status === 403) {
-        regenerateTokenPut(`http://localhost:3000/approve/${magazine._id}`)
+        regenerateTokenPut(
+          `https://mavback-p9lg.onrender.com/approve/${magazine._id}`
+        )
         setResult((prevResult) =>
           prevResult.filter((element) => element._id !== magazine._id)
         )
@@ -34,7 +36,7 @@ const MagazineCard = ({ magazine, result, setResult }) => {
   const HandelReject = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/reject/${magazine._id}`,
+        `https://mavback-p9lg.onrender.com/reject/${magazine._id}`,
         { token: localStorage.getItem('refreshToken') },
         {
           headers: {
@@ -50,7 +52,9 @@ const MagazineCard = ({ magazine, result, setResult }) => {
       console.log(error)
 
       if (error.response.status === 403) {
-        regenerateTokenPut(`http://localhost:3000/reject/${magazine._id}`)
+        regenerateTokenPut(
+          `https://mavback-p9lg.onrender.com/reject/${magazine._id}`
+        )
         setResult((prevResult) =>
           prevResult.filter((element) => element._id !== magazine._id)
         )

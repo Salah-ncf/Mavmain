@@ -7,7 +7,7 @@ const NewProducts = () => {
     const Products = async () => {
       try {
         const NewProducts = await axios.get(
-          `http://localhost:3000/api/NewProducts`
+          `https://mavback-p9lg.onrender.com/api/NewProducts`
         )
         console.log(NewProducts)
         setResult(NewProducts.data)
